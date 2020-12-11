@@ -11,35 +11,6 @@ Original file is located at
 ## ECE472 - Deep Learning
 ## Assignment 2
 
-# My various attempts in building a functional form for the function f (which in my case is
-# the percep function) went almost full circle. On the first try, my percep function took
-# in the x values for one of the classes and utilized a similar loop to the current one in 
-# order to create a prediction array of y values (from here I inferred that the loss
-# function would be calculating the probabilities). After learning that it was necessary to 
-# use all the data that was provided (as opposed to using one class of data and inferring
-# that whatever wasn't in this class was in the other class) and that this function should
-# ideally be outputing the probability for each set of points, the data structure that was
-# fed into the function was rearranged however the crux of the function did not change much.
-# The first major differences that were introduced were transposing the data so that the
-# matrix multiplication could be properly executed and running the output array through a 
-# sigmoid funciton to map the values to some probability. When this was done the output
-# contour was still not what was desired, so I attempted a change in activation functions.
-# In this third attempt, I used sigmoids as opposed to ReLUs since I had read in an online
-# forum that sigmoids tend to be better for binary classification and the ReLUs often left
-# me with nan outputs. This yielded slightly better results than the ReLUs at the time 
-# however it required me to change many of my variables. When debugging other aspects of 
-# the program, I was informed (by you) that ReLUs are a better route for this application, 
-# especially since it seems that in general they can be applied in any deep learning 
-# application. By this fouth attempt, I ended up with a function that was just about 
-# exactly the same as my second attempt however this fourth attempt was its final form 
-# and with it working reasonably well, the only other thing to do was adjust variables to 
-# fine tune the weights.
-
-# In the final output, the blue region denotes where the application is likely to suggest
-# that a data point belongs to class 1 (the red data) and the white denotes the same for
-# class 0 (the blue data). The boundary of these regions is where the application will make
-# the classification into class 0 or 1 with 50% probability.
-
 import numpy as np
 import matplotlib.pyplot as plt
 import jax
