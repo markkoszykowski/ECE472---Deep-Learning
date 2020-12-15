@@ -39,7 +39,7 @@ def loss(params, x, y, M):
     y_hat = f(params, x, M)
 
     # Scalar of 1/2 not necessary however was included in assignment so was included for redundancy
-    return jnp.mean((1/2) * (y - y_hat) ** 2)
+    return (1/2) * jnp.mean((y - y_hat) ** 2)
 
 # Define a step function which adjusts th parameters
 def step(params, step_size, x, y, M):
