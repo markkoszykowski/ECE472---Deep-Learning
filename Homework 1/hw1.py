@@ -73,7 +73,7 @@ x_noiseless = jnp.linspace(0, 1, 1000)
 y_noiseless = jnp.sin(2*np.pi*x_noiseless)
 
 # Iterate step function to adjust the dictionary of parameters
-                                                              
+for i in range(100):
   _, params = step(params, step_size, x, y, M)
 
 # Print out all the parameters to be optimized line-by-line
