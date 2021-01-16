@@ -4,6 +4,7 @@
 
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 
@@ -50,9 +51,7 @@ model.add(Dense(10, kernel_regularizer='l2', activation=tf.nn.softmax))
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x=x_train, y=y_train, epochs=10, validation_data=(x_tune, y_tune))
 
-x = np.linspace(1, len(history.history['loss']))
-
-plot(x, history.history['loss'])
+plt.plot(history.history['loss'])
 
 # Create an array of predictions for the test set
 probs = model.predict(x_test)
